@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
 def home(request):
@@ -46,4 +46,6 @@ def signin(request):
 
 
 def signout(request):
-   pass
+     logout(request)
+     messages.success(request,"Logged Out Successfully !! Thank  you for visiting")
+     return redirect("home")
